@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url(./reset.css);
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --frenchPlum: #720060;
+  --pinkLace: #fde2ff;
+  --eerieBlack: #1e1e1e;
+  --azureishWhite: #d6e6ff;
+  --catalinaBlue: #002772;
+  --blackOlive: #3f3f3f;
+  --gainsboro: #dcdcdc;
+  --max-width-xl: 36rem;
+  --max-width-2xl: 42rem;
+  --max-width-3xl: 48rem;
+  --max-width-4xl: 56rem;
+  --max-width-5xl: 64rem;
+  --max-width-6xl: 72rem;
+  --max-width-7xl: 80rem;
+}
+
+.main-wrapper {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.pattern {
+  background: var(--pinkLace);
+  background-image: url("/images/bg-pattern.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.section-wrapper {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 548px;
+}
+
+.product-title {
+  color: var(--frenchPlum);
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.product {
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  width: 100%;
+  height: 580px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.35);
+}
+
+.product-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price-bottom {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .product-else {
+    flex-direction: column;
+  }
+
+  .product-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.product-rate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-category-and-rate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0 0.5rem 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.product-description {
+  font-size: 20px;
+  margin-top: 1.3rem;
+}
+
+.product-btn-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.product-btn-buy {
+  background: var(--catalinaBlue);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 0.3rem 0 0.3rem 0;
+  font-size: 20px;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.product-btn-next {
+  border: 3px solid var(--frenchPlum);
+  background: white;
+  width: 100%;
+  font-weight: 600;
+  color: var(--frenchPlum);
+  border-radius: 5px;
+  padding: 0.3rem 0 0.3rem 0;
+  font-size: 20px;
+}
+
+.product-price {
+  color: var(--frenchPlum);
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.product-price-wrapper {
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.product-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-width: var(--max-width-5xl);
+  padding: 2rem;
+  background: transparent;
+}
+
+.product-content {
+  width: 548px;
+  height: 484px;
+}
+
+.product-rate-num {
+  margin-right: 0.2rem;
+}
+
+.product-image {
+  width: 300px;
+  height: 300px;
+}
+
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100dvh;
+  backdrop-filter: blur(16px);
+}
+
+.modal {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Skeleton loading */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.product-content-top {
+  width: 100%;
+}
+
+.product-image-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: var(--gainsboro);
+  width: 300px;
+  height: 300px;
+}
+
+.product-title-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: gainsboro;
+  width: 500px;
+  height: 24px;
+}
+
+.product-category-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: gainsboro;
+  width: 200px;
+  height: 24px;
+}
+
+.product-rate-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: gainsboro;
+  width: 200px;
+  height: 24px;
+}
+
+.product-description-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: gainsboro;
+  width: 100%;
+  height: 90px;
+  margin-top: 1.3rem;
+}
+
+.product-price-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: gainsboro;
+  width: 120px;
+  height: 40px;
+}
+
+.product-btn-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: gainsboro;
+  width: 100%;
+  height: 50px;
+}
+
+.product-else {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.product-else-bg {
+  background-image: url("/images/sad-face.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.product-btn-next-notfound {
+  border: 3px solid black;
+  margin-top: 7px;
+  padding: 0.4rem 0 0.4rem 0;
+  border-radius: 4px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.product-description-not-found {
+  font-size: 20px;
+}
+
+.product-not-found {
+  width: 465px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.pattern-not-found {
+  background-color: #d8d7d7;
+}
+
+.modal-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-information-text {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.modal-information-close-btn {
+  padding: 3px 4px 3px 4px;
+  font-weight: bold;
+  background: gainsboro;
+  border-radius: 5px;
+}
+
+.modal-thankyou-wrapper {
+  margin-top: 0.5rem;
+}
+
+.fill-rate {
+  background: var(--frenchPlum);
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--frenchPlum);
+}
+
+.no-fill-rate {
+  background: white;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--frenchPlum);
+}
