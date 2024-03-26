@@ -1,6 +1,3 @@
-import type { Ref } from "vue";
-
-// store interface
 export interface ProductProps {
   id: number;
   title: string;
@@ -12,15 +9,4 @@ export interface ProductProps {
     rate: number;
     count: number;
   };
-}
-
-export interface StateProps {
-  product: Ref<ProductProps>;
-  menClothings: Ref<{} | ProductProps>;
-  womenClothings: Ref<{} | ProductProps>;
-  id: Ref<number>;
-  rate: Ref<Array<number>>;
-  isLoading: Ref<boolean>;
-  isOpenModal: Ref<boolean>;
-  isNotFound: Ref<boolean>;
 }

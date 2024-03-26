@@ -12,8 +12,7 @@ export default {
 
     return {
       product: state.product,
-      menClothings: state.menClothings,
-      womenClothings: state.womenClothings,
+      clothings: state.clothings,
       id: state.id,
       isNotFound: state.isNotFound,
       rate: state.rate,
@@ -34,12 +33,10 @@ export default {
           }
         });
 
-        if (response.category === "men's clothing") {
-          this.menClothings = response;
-        }
-
-        if (response.category === "women's clothing") {
-          this.womenClothings = response;
+        if (response.category === "men's clothing" || response.category === "women's clothing") {
+          this.clothings = response;
+        } else {
+          this.clothings = {};
         }
 
         this.product = response;
@@ -74,17 +71,7 @@ export default {
 </script>
 
 <template>
-  <section
-    :class="`section-wrapper ${
-      isNotFound
-        ? 'page-unavailable-product'
-        : product.category === `men's clothing`
-        ? 'page-men-section'
-        : product.category === `women's clothing`
-        ? 'page-women-section'
-        : ''
-    } ${isNotFound ? 'pattern-not-found' : 'pattern'}`"
-  >
+  <section :class="`section-wrapper ${isNotFound ? 'pattern-not-found' : 'pattern'}`">
     <div class="modal-wrapper" v-if="isOpenModal">
       <div class="modal">
         <div class="modal-information">
@@ -125,7 +112,16 @@ export default {
             <div class="product-content-top">
               <div>
                 <div v-if="isLoading" class="product-title-skeleton"></div>
-                <h3 v-else class="product-title">
+                <h3
+                  v-else
+                  :class="
+                    product.category === `men's clothing`
+                      ? 'product-men-title'
+                      : product.category === `women's clothing`
+                      ? 'product-women-title'
+                      : 'product-title'
+                  "
+                >
                   {{ product.title }}
                 </h3>
               </div>
@@ -153,14 +149,31 @@ export default {
             <div class="product-price-bottom">
               <div class="product-price-wrapper">
                 <div v-if="isLoading" class="product-price-skeleton"></div>
-                <p class="product-price" v-else>{{ `$${product.price}` }}</p>
+                <p
+                  :class="
+                    product.category === `men's clothing`
+                      ? 'product-men-price'
+                      : product.category === `women's clothing`
+                      ? 'product-women-price'
+                      : 'product-price'
+                  "
+                  v-else
+                >
+                  {{ `$${product.price}` }}
+                </p>
               </div>
               <div v-if="isLoading" class="product-btn-skeleton"></div>
               <div class="product-btn-wrapper" v-else>
                 <button
                   type="button"
                   aria-label="buy now"
-                  class="product-btn-buy"
+                  :class="
+                    product.category === `men's clothing`
+                      ? 'product-men-btn-buy'
+                      : product.category === `women's clothing`
+                      ? 'product-women-btn-buy'
+                      : 'product-btn-buy'
+                  "
                   @click="setIsOpenModal(!isOpenModal)"
                 >
                   Buy Now
@@ -168,7 +181,13 @@ export default {
                 <button
                   type="button"
                   aria-label="next product"
-                  class="product-btn-next"
+                  :class="
+                    product.category === `men's clothing`
+                      ? 'product-men-btn-next'
+                      : product.category === `women's clothing`
+                      ? 'product-women-btn-next'
+                      : 'product-btn-next'
+                  "
                   @click="setId(id + 4)"
                 >
                   Next Product

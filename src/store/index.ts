@@ -1,11 +1,20 @@
-import type { StateProps } from "@/interfaces";
+import type { ProductProps } from "@/interfaces";
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
+
+interface StateProps {
+  product: Ref<ProductProps>;
+  clothings: Ref<{} | ProductProps>;
+  id: Ref<number>;
+  rate: Ref<Array<number>>;
+  isLoading: Ref<boolean>;
+  isOpenModal: Ref<boolean>;
+  isNotFound: Ref<boolean>;
+}
 
 export const useStore = defineStore("store", {
   state: (): StateProps => ({
-    menClothings: ref({}),
-    womenClothings: ref({}),
+    clothings: ref({}),
     product: ref({
       id: 0,
       title: "",
