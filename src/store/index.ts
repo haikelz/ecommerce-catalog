@@ -4,6 +4,8 @@ import { ref } from "vue";
 
 export const useStore = defineStore("store", {
   state: (): StateProps => ({
+    menClothings: ref({}),
+    womenClothings: ref({}),
     product: ref({
       id: 0,
       title: "",

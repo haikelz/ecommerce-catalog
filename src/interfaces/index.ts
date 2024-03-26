@@ -16,6 +16,8 @@ export interface ProductProps {
 
 export interface StateProps {
   product: Ref<ProductProps>;
+  menClothings: Ref<{} | ProductProps>;
+  womenClothings: Ref<{} | ProductProps>;
   id: Ref<number>;
   rate: Ref<Array<number>>;
   isLoading: Ref<boolean>;

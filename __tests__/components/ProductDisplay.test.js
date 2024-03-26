@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import ProductDisplay from "../../src/components/ProductDisplay.vue";
 
 describe("Product Display component test", () => {

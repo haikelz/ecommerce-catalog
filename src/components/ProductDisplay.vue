@@ -12,6 +12,8 @@ export default {
 
     return {
       product: state.product,
+      menClothings: state.menClothings,
+      womenClothings: state.womenClothings,
       id: state.id,
       isNotFound: state.isNotFound,
       rate: state.rate,
@@ -32,18 +34,31 @@ export default {
           }
         });
 
+        if (response.category === "men's clothing") {
+          this.menClothings = response;
+        }
+
+        if (response.category === "women's clothing") {
+          this.womenClothings = response;
+        }
+
         this.product = response;
-        this.isLoading = false;
       } catch (err) {
         console.error(err);
         this.isNotFound = true;
+      } finally {
         this.isLoading = false;
       }
     },
     setId(id: number) {
-      this.id = id;
-      this.isLoading = true;
+      if (this.isNotFound && id > 20) {
+        this.id = 1;
+        this.isNotFound = false;
+      } else {
+        this.id = id;
+      }
 
+      this.isLoading = true;
       // re-render data based on id changes
       this.getData();
     },
@@ -59,7 +74,17 @@ export default {
 </script>
 
 <template>
-  <section :class="`section-wrapper ${isNotFound ? 'pattern-not-found' : 'pattern'}`">
+  <section
+    :class="`section-wrapper ${
+      isNotFound
+        ? 'page-unavailable-product'
+        : product.category === `men's clothing`
+        ? 'page-men-section'
+        : product.category === `women's clothing`
+        ? 'page-women-section'
+        : ''
+    } ${isNotFound ? 'pattern-not-found' : 'pattern'}`"
+  >
     <div class="modal-wrapper" v-if="isOpenModal">
       <div class="modal">
         <div class="modal-information">

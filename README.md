@@ -1,39 +1,32 @@
-# ecommerce-catalog
+<div align="center">
+  <h1>E-Commerce Catalog</h1>
+  <p>Final Project VIX by Rakamin: Frontend Developer at Core Initiative</p>
+</div>
 
-This template should help get you started developing with Vue 3 in Vite.
+## Stack
 
-## Recommended IDE Setup
+- Vue JS
+- Typescript
+- Pinia for State management
+- Github Actions and Docker for CI/CD
+- Cloudflare Pages
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Screenshots
 
-## Type Support for `.vue` Imports in TS
+**Display product**
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+![ss 2](public/docs/ss-2.png)
 
-## Customize configuration
+![ss 3](public/docs/ss-3.png)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+**Loading state**
 
-## Project Setup
+![ss 1](public/docs/ss-1.png)
 
-```sh
-pnpm install
-```
+**Not found**
 
-### Compile and Hot-Reload for Development
+![ss 4](public/docs/ss-4.png)
 
-```sh
-pnpm dev
-```
+**Bonus: Show modal success after buy!**
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+![ss 5](public/docs/ss-5.png)
